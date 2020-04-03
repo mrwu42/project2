@@ -1,6 +1,6 @@
 # project2
 
-Tamagotchi (Covid Pets)
+Tamagotchi (Covid Quarantine Pets)
 
 1) Logins (passport) Tim
 2) Tamagotchi choices
