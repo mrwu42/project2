@@ -5,7 +5,10 @@ var path = require("path");
 var Sequelize = require("sequelize");
 var basename = path.basename(module.filename);
 var env = process.env.NODE_ENV || "development";
-var config = require(__dirname + "/../config/config.json")[env];
+/ modified this file to be able to pass .env variables in development
+// instructions found at -- https://stackoverflow.com/questions/38757728/using-an-enviroment-variable-for-local-sequelize-configuration
+// const config = require(__dirname + '/../config/config.json')[env];  
+const config = require(__dirname + '/../config/config.js')[env];
 var db = {};
 
 if (config.use_env_variable) {
