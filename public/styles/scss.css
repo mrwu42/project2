@@ -1,0 +1,19 @@
+.tamagotchi {
+  width: 256px;
+  height: 310px;
+  background: #fdd432;
+  text-align: center;
+  position: fixed;
+  border-radius: 54%/65% 65% 47% 47%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-box-shadow: 10px 10px 40px -20px rgba(0, 0, 0, 0.4);
+          box-shadow: 10px 10px 40px -20px rgba(0, 0, 0, 0.4);
+}
+/*# sourceMappingURL=scss.css.map */
