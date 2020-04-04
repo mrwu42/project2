@@ -16,4 +16,61 @@
   -webkit-box-shadow: 10px 10px 40px -20px rgba(0, 0, 0, 0.4);
           box-shadow: 10px 10px 40px -20px rgba(0, 0, 0, 0.4);
 }
+
+.tamagotchi__inner {
+  width: 256px;
+  height: 310px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 54%/65% 65% 47% 47%;
+  overflow: hidden;
+}
+
+.tamagotchi__shadow {
+  position: absolute;
+  border-radius: 54%/65% 65% 47% 47%;
+  top: 6%;
+  left: 6%;
+  width: 82%;
+  height: 82%;
+  -webkit-box-shadow: 10px 15px 10px 10px rgba(239, 192, 2, 0.9);
+          box-shadow: 10px 15px 10px 10px rgba(239, 192, 2, 0.9);
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
+}
+
+.tamagotchi__highlight {
+  position: absolute;
+  width: 25px;
+  height: 75px;
+  border-radius: 90% 10% 10% 90%;
+  background-color: #fee274;
+  -webkit-transform: rotate(40deg);
+          transform: rotate(40deg);
+  left: 35px;
+  top: 5px;
+}
+
+.screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -63px;
+  margin-top: -60px;
+}
+
+.screen__inner {
+  background: #e3e6c9;
+  width: 126px;
+  height: 126px;
+  border-radius: 13px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border-bottom: 2px solid rgba(15, 15, 15, 0.3);
+  border-top: 2px solid rgba(15, 15, 15, 0.3);
+  -webkit-box-shadow: 0 1px 1px 1px rgba(253, 253, 253, 0.3);
+          box-shadow: 0 1px 1px 1px rgba(253, 253, 253, 0.3);
+}
 /*# sourceMappingURL=scss.css.map */

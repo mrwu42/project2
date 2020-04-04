@@ -1,5 +1,9 @@
 $egg-radius: 54% / 65% 65% 47% 47%;
 $body-main: #fdd432;
+$body-shadow: darken($body-main, 12%);
+$screen-white: #e3e6c9;
+$black:  #0f0f0f;
+$white: #fdfdfd;
 
 .tamagotchi {
     width: 256px;
@@ -14,4 +18,56 @@ $body-main: #fdd432;
     user-select: none;
     box-shadow: 10px 10px 40px -20px rgba(0,0,0,0.4);
     
+    &__inner {
+        width: 256px;
+        height: 310px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: $egg-radius;
+        overflow: hidden;
+      }
+      
+      &__shadow {
+        position: absolute;
+        border-radius: $egg-radius;
+        top: 6%;
+        left: 6%;
+        width: 82%;
+        height: 82%;
+        box-shadow: 10px 15px 10px 10px rgba($body-shadow, 0.9);
+        filter: blur(5px);
+      }
+      
+      &__highlight {
+        position: absolute;
+        width: 25px;
+        height: 75px;
+        border-radius: 90% 10% 10% 90%;
+        background-color: lighten($body-main, 13%);
+        transform: rotate(40deg);
+        left: 35px;
+        top: 5px;
+      }
+}
+
+.screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -63px;
+    margin-top: -60px;
+
+    &__inner {
+        background: $screen-white;
+        width: 126px;
+        height: 126px;
+        border-radius: 13px;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        border-bottom: 2px solid rgba($black, 0.3);
+        border-top: 2px solid rgba($black, 0.3);
+        box-shadow: 0 1px 1px 1px rgba($white, 0.3);
+    }
 }
