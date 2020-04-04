@@ -20,4 +20,4 @@ Tamagotchi (Covid Quarantine Pets)
     5) Data Dictionary
 
 
-Create a virtual pet that the user can interact with. Store user/Tamagotchi interactions in MySQL. Utulize routes and apis for the different interactions. Use SCSS for the frontend UI. 
+Create a virtual pet that the user can interact with. Store user/Tamagotchi interactions in MySQL. Utilize routes and apis for the different interactions. Use SCSS for the frontend UI. 
