@@ -1,5 +1,5 @@
 {
-  "name": "node-handlebars-boilerplate",
+  "name": "covid-quarantive-pets",
   "version": "1.0.0",
   "description": "Project 2 Starter",
   "main": "server.js",
@@ -11,12 +11,11 @@
     "watch": "nodemon server.js"
   },
   "license": "ISC",
+  "author": "Justin Acosta, Helen Maschmeyer, Tim Shaffer, Wayne Wu",
   "dependencies": {
-    "bcrypt-nodejs": "0.0.3",
-    "body-parser": "^1.19.0",
+    "bcryptjs": "2.4.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "express-handlebars": "^3.1.0",
     "express-session": "^1.17.0",
     "mysql": "^2.18.1",
     "mysql2": "^1.7.0",
