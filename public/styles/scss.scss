@@ -1,19 +1,132 @@
 $egg-radius: 54% / 65% 65% 47% 47%;
-$body-main: #fdd432;
+$body-main: #fd5132;
 $body-shadow: darken($body-main, 12%);
 $screen-white: #e3e6c9;
 $black:  #0f0f0f;
 $white: #fdfdfd;
+body {
+  background-image: url("https://pbs.twimg.com/media/EKvPJUXU8AAbRko.jpg");
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.header {
+  position: fixed;
+  left: 0;
+  top: 35;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+
+  &__section {
+    position: relative;
+    padding: 1% 0 1%;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    text-align: center;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Orbitron', sans-serif;
+    background-color: lightsalmon;
+    box-shadow: 5px 10px rgb(192, 120, 96);
+    border-radius: 25px;
+  }
+}
+
+.button {
+  text-align: center;
+  width: 160px;
+  top: 300;
+  left: 600;
+  background-color: lightsalmon;
+  border-radius: 25px;
+  box-shadow: 5px 10px rgb(192, 120, 96);
+  padding: 20px;
+  position: absolute;  
+  margin: 30px 10px; 
+  cursor: pointer;
+
+  &__feed {
+    text-align: center;
+    margin-bottom: 10;
+    box-shadow: 2px 2px rgb(192, 120, 96);
+    font-family: 'Lemonada', cursive;
+  }
+  &__play {
+    text-align: center;
+    margin-bottom: 10;
+    box-shadow: 2px 2px rgb(192, 120, 96);
+    font-family: 'Lemonada', cursive;
+  }
+  &__sleep {
+    text-align: center;
+    margin-bottom: 10;
+    box-shadow: 2px 2px rgb(192, 120, 96);
+    font-family: 'Lemonada', cursive;
+  }
+  &__wake {
+    text-align: center;
+    margin-bottom: 10;
+    box-shadow: 2px 2px rgb(192, 120, 96);
+    font-family: 'Lemonada', cursive;
+  }
+  &__clean {
+    text-align: center;
+    margin-bottom: 10;
+    box-shadow: 2px 2px rgb(192, 120, 96);
+    font-family: 'Lemonada', cursive;
+  }
+  &__medicine {
+    text-align: center;
+    margin-bottom: 10;
+    box-shadow: 2px 2px rgb(192, 120, 96);
+    font-family: 'Lemonada', cursive;
+  }
+}
+
+// .bar {
+//   text-align: center;
+//   background-color: #ccc;
+//   height: 30px;
+//   width: 500px;
+//   margin: 0 auto;
+//   border: solid 1px #aaa;
+
+//   &__health {
+//     background-color: #007f00;
+//     width: inherit;
+//     height: 28px;
+//     position: relative;
+//     bottom: 56px;
+//   }
+// }
+
+// // .health-bar {
+// //     background-color: #007f00;
+// //     width: inherit;
+// //     height: 28px;
+// //     position: ;
+// //     bottom: 56px;
+// //   }
+
 
 .tamagotchi {
     width: 256px;
     height: 310px;
     background: $body-main;
-    text-align: center;
+    text-align: right;
     position: fixed;
+    right: 0px;
     border-radius: $egg-radius;
-    top: 50%;
-    left: 50%;
+    top: 500;
+    left: 1200;
     transform: translate(-50%, -50%);
     user-select: none;
     box-shadow: 10px 10px 40px -20px rgba(0,0,0,0.4);
