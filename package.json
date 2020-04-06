@@ -1,5 +1,5 @@
 {
-  "name": "node-handlebars-boilerplate",
+  "name": "covid-quarantive-pets",
   "version": "1.0.0",
   "description": "Project 2 Starter",
   "main": "server.js",
@@ -7,15 +7,21 @@
     "start": "node server.js",
     "lint": "eslint --quiet .",
     "fix": "eslint --fix .",
-    "test": "npm run lint && cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit"
+    "test": "npm run lint && cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit",
+    "watch": "nodemon server.js"
   },
   "license": "ISC",
+  "author": "Justin Acosta, Helen Maschmeyer, Tim Shaffer, Wayne Wu",
   "dependencies": {
-    "dotenv": "^8.0.0",
-    "express": "^4.17.0",
-    "express-handlebars": "^3.1.0",
-    "mysql2": "^1.6.5",
-    "sequelize": "^5.8.6"
+    "bcryptjs": "2.4.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^1.7.0",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "sequelize": "^5.21.6"
   },
   "devDependencies": {
     "chai": "^4.2.0",
