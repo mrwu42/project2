@@ -7,6 +7,7 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  z-index: -1;
 }
 
 .header {
@@ -36,9 +37,10 @@ body {
 }
 
 .button {
+  display: block;
   text-align: center;
   width: 160px;
-  top: 300;
+  top: 250;
   left: 600;
   background-color: lightsalmon;
   border-radius: 25px;
@@ -99,11 +101,11 @@ body {
 }
 
 .tamagotchi {
+  display: block;
   width: 256px;
   height: 310px;
   background: #fd5132;
-  text-align: right;
-  position: fixed;
+  position: absolute;
   right: 0px;
   border-radius: 54%/65% 65% 47% 47%;
   top: 500;
