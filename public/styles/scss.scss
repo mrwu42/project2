@@ -13,6 +13,7 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  z-index: -1;
 }
 .header {
   position: fixed;
@@ -41,9 +42,10 @@ body {
 }
 
 .button {
+  display: block;
   text-align: center;
   width: 160px;
-  top: 300;
+  top: 250;
   left: 600;
   background-color: lightsalmon;
   border-radius: 25px;
@@ -91,38 +93,12 @@ body {
   }
 }
 
-// .bar {
-//   text-align: center;
-//   background-color: #ccc;
-//   height: 30px;
-//   width: 500px;
-//   margin: 0 auto;
-//   border: solid 1px #aaa;
-
-//   &__health {
-//     background-color: #007f00;
-//     width: inherit;
-//     height: 28px;
-//     position: relative;
-//     bottom: 56px;
-//   }
-// }
-
-// // .health-bar {
-// //     background-color: #007f00;
-// //     width: inherit;
-// //     height: 28px;
-// //     position: ;
-// //     bottom: 56px;
-// //   }
-
-
 .tamagotchi {
+  display: block;
     width: 256px;
     height: 310px;
     background: $body-main;
-    text-align: right;
-    position: fixed;
+    position: absolute;
     right: 0px;
     border-radius: $egg-radius;
     top: 500;
@@ -184,3 +160,13 @@ body {
         box-shadow: 0 1px 1px 1px rgba($white, 0.3);
     }
 }
+
+// .container {
+//   position: fixed;
+//   bottom: 20;
+//   left: 400;
+//   background-color: lightsalmon;
+//   display: block;
+  
+  
+// }
