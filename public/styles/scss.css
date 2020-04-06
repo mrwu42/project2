@@ -1,12 +1,113 @@
+body {
+  background-image: url("https://pbs.twimg.com/media/EKvPJUXU8AAbRko.jpg");
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.header {
+  position: fixed;
+  left: 0;
+  top: 35;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.header__section {
+  position: relative;
+  padding: 1% 0 1%;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  color: black;
+  text-align: center;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Orbitron', sans-serif;
+  background-color: lightsalmon;
+  -webkit-box-shadow: 5px 10px #c07860;
+          box-shadow: 5px 10px #c07860;
+  border-radius: 25px;
+}
+
+.button {
+  text-align: center;
+  width: 160px;
+  top: 300;
+  left: 600;
+  background-color: lightsalmon;
+  border-radius: 25px;
+  -webkit-box-shadow: 5px 10px #c07860;
+          box-shadow: 5px 10px #c07860;
+  padding: 20px;
+  position: absolute;
+  margin: 30px 10px;
+  cursor: pointer;
+}
+
+.button__feed {
+  text-align: center;
+  margin-bottom: 10;
+  -webkit-box-shadow: 2px 2px #c07860;
+          box-shadow: 2px 2px #c07860;
+  font-family: 'Lemonada', cursive;
+}
+
+.button__play {
+  text-align: center;
+  margin-bottom: 10;
+  -webkit-box-shadow: 2px 2px #c07860;
+          box-shadow: 2px 2px #c07860;
+  font-family: 'Lemonada', cursive;
+}
+
+.button__sleep {
+  text-align: center;
+  margin-bottom: 10;
+  -webkit-box-shadow: 2px 2px #c07860;
+          box-shadow: 2px 2px #c07860;
+  font-family: 'Lemonada', cursive;
+}
+
+.button__wake {
+  text-align: center;
+  margin-bottom: 10;
+  -webkit-box-shadow: 2px 2px #c07860;
+          box-shadow: 2px 2px #c07860;
+  font-family: 'Lemonada', cursive;
+}
+
+.button__clean {
+  text-align: center;
+  margin-bottom: 10;
+  -webkit-box-shadow: 2px 2px #c07860;
+          box-shadow: 2px 2px #c07860;
+  font-family: 'Lemonada', cursive;
+}
+
+.button__medicine {
+  text-align: center;
+  margin-bottom: 10;
+  -webkit-box-shadow: 2px 2px #c07860;
+          box-shadow: 2px 2px #c07860;
+  font-family: 'Lemonada', cursive;
+}
+
 .tamagotchi {
   width: 256px;
   height: 310px;
-  background: #fdd432;
-  text-align: center;
+  background: #fd5132;
+  text-align: right;
   position: fixed;
+  right: 0px;
   border-radius: 54%/65% 65% 47% 47%;
-  top: 50%;
-  left: 50%;
+  top: 500;
+  left: 1200;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   -webkit-user-select: none;
@@ -15,5 +116,62 @@
           user-select: none;
   -webkit-box-shadow: 10px 10px 40px -20px rgba(0, 0, 0, 0.4);
           box-shadow: 10px 10px 40px -20px rgba(0, 0, 0, 0.4);
+}
+
+.tamagotchi__inner {
+  width: 256px;
+  height: 310px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 54%/65% 65% 47% 47%;
+  overflow: hidden;
+}
+
+.tamagotchi__shadow {
+  position: absolute;
+  border-radius: 54%/65% 65% 47% 47%;
+  top: 6%;
+  left: 6%;
+  width: 82%;
+  height: 82%;
+  -webkit-box-shadow: 10px 15px 10px 10px rgba(239, 39, 2, 0.9);
+          box-shadow: 10px 15px 10px 10px rgba(239, 39, 2, 0.9);
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
+}
+
+.tamagotchi__highlight {
+  position: absolute;
+  width: 25px;
+  height: 75px;
+  border-radius: 90% 10% 10% 90%;
+  background-color: #fe8974;
+  -webkit-transform: rotate(40deg);
+          transform: rotate(40deg);
+  left: 35px;
+  top: 5px;
+}
+
+.screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -63px;
+  margin-top: -60px;
+}
+
+.screen__inner {
+  background: #e3e6c9;
+  width: 126px;
+  height: 126px;
+  border-radius: 13px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border-bottom: 2px solid rgba(15, 15, 15, 0.3);
+  border-top: 2px solid rgba(15, 15, 15, 0.3);
+  -webkit-box-shadow: 0 1px 1px 1px rgba(253, 253, 253, 0.3);
+          box-shadow: 0 1px 1px 1px rgba(253, 253, 253, 0.3);
 }
 /*# sourceMappingURL=scss.css.map */
