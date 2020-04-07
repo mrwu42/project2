@@ -5,18 +5,23 @@ $screen-white: #e3e6c9;
 $black:  #0f0f0f;
 $white: #fdfdfd;
 body {
-  background-image: url("https://pbs.twimg.com/media/EKvPJUXU8AAbRko.jpg");
-  position: fixed;
+  background: url("https://pbs.twimg.com/media/EKvPJUXU8AAbRko.jpg");
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+  position: relative;
   left: 0;
   top: 0;
   width: 100%;
+  height: 100%;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   z-index: -1;
+  // overflow: scroll;
 }
 .header {
-  position: fixed;
+  position: absolute;
   left: 0;
   top: 35;
   width: 100%;
@@ -42,70 +47,96 @@ body {
 }
 
 .button {
-  display: block;
+  display: inline-block;
   text-align: center;
   width: 160px;
-  top: 250;
-  left: 600;
+  height: 480px;
+  // top: 250;
   background-color: lightsalmon;
   border-radius: 25px;
   box-shadow: 5px 10px rgb(192, 120, 96);
   padding: 20px;
-  position: absolute;  
-  margin: 30px 10px; 
+  position: fixed;  
+  // margin: 30px 10px; 
   cursor: pointer;
+  left: 27%;
+  top: 25%;
 
   &__feed {
     text-align: center;
-    margin-bottom: 10;
+    margin-bottom: 30;
     box-shadow: 2px 2px rgb(192, 120, 96);
     font-family: 'Lemonada', cursive;
   }
   &__play {
     text-align: center;
-    margin-bottom: 10;
+    margin-bottom: 30;
     box-shadow: 2px 2px rgb(192, 120, 96);
     font-family: 'Lemonada', cursive;
   }
   &__sleep {
     text-align: center;
-    margin-bottom: 10;
+    margin-bottom: 30;
     box-shadow: 2px 2px rgb(192, 120, 96);
     font-family: 'Lemonada', cursive;
   }
   &__wake {
     text-align: center;
-    margin-bottom: 10;
+    margin-bottom: 30;
     box-shadow: 2px 2px rgb(192, 120, 96);
     font-family: 'Lemonada', cursive;
   }
   &__clean {
     text-align: center;
-    margin-bottom: 10;
+    margin-bottom: 30;
     box-shadow: 2px 2px rgb(192, 120, 96);
     font-family: 'Lemonada', cursive;
   }
   &__medicine {
     text-align: center;
-    margin-bottom: 10;
+    margin-bottom: 30;
     box-shadow: 2px 2px rgb(192, 120, 96);
     font-family: 'Lemonada', cursive;
   }
 }
 
+.bar{
+  display: inline-block;
+  background-color: lightsalmon;
+  border-radius: 25px;
+  box-shadow: 5px 10px rgb(192, 120, 96);
+  height: 480px;
+  width: 350px;
+  position: fixed;
+  padding-left: 5px;
+  padding-right: 5px;
+  right: 45%;
+  top: 25%;
+
+  &__hungerness{
+    padding-top: 10px;
+    font-family: 'Lemonada', cursive;
+  }
+
+  &__title{
+    font-family: 'Lemonada', cursive;
+  }
+}
+
 .tamagotchi {
-  display: block;
+  display: inline-block;
     width: 256px;
     height: 310px;
     background: $body-main;
     position: absolute;
-    right: 0px;
     border-radius: $egg-radius;
-    top: 500;
-    left: 1200;
     transform: translate(-50%, -50%);
     user-select: none;
     box-shadow: 10px 10px 40px -20px rgba(0,0,0,0.4);
+    // top: 1000;
+    right: 3%;
+    top: 2000%;
+    overflow: visible;
     
     &__inner {
         width: 256px;
@@ -160,13 +191,3 @@ body {
         box-shadow: 0 1px 1px 1px rgba($white, 0.3);
     }
 }
-
-// .container {
-//   position: fixed;
-//   bottom: 20;
-//   left: 400;
-//   background-color: lightsalmon;
-//   display: block;
-  
-  
-// }

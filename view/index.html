@@ -8,21 +8,23 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 
-    <title>Tamagotchi Covid Quarantine Pets</title>
+    <title>Quarantine Pets</title>
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
-            <div class="header">
-                <div class="header__section">
-                    <h1>Tamagotchi Covid Quarantine Pets</h1>
+            <div class="col">
+                <div class="header">
+                    <div class="header__section">
+                        <h1>Quarantine Pets</h1>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-12">
                 <div class="tamagotchi">
                     <div class="tamagotchi__inner">
                         <div class="tamagotchi__shadow">
@@ -36,66 +38,70 @@
             </div>
 
             <br>
+        </div>
 
-            <div class="button">
-                <div class="col-lg-6">
-                    <div class="button__feed btn btn-info btn-lg" type="button">Feed</div>
-                    <br>
-                    <div class="button__play btn btn-secondary btn-lg" type="button">Play</div>
-                    <br>
-                    <div class="button__sleep btn btn-danger btn-lg" type="button">Sleep</div>
-                    <br>
-                    <div class="button__wake btn btn-danger btn-lg" type="button">Wake</div>
-                    <br>
-                    <div class="button__clean btn btn-success btn-lg" type="button">Clean</div>
-                    <br>
-                    <div class="button__medicine btn btn-primary btn-lg" type="button">Medicine</div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="button">
+                    <div class="col-lg-6">
+                        <div class="button__feed btn btn-info btn-lg" type="button">Feed</div>
+                        <br>
+                        <div class="button__play btn btn-secondary btn-lg" type="button">Play</div>
+                        <br>
+                        <div class="button__sleep btn btn-danger btn-lg" type="button">Sleep</div>
+                        <br>
+                        <div class="button__wake btn btn-danger btn-lg" type="button">Wake</div>
+                        <br>
+                        <div class="button__clean btn btn-success btn-lg" type="button">Clean</div>
+                        <br>
+                        <div class="button__medicine btn btn-primary btn-lg" type="button">Medicine</div>
+                    </div>
                 </div>
             </div>
+
+            <div class="col-lg-6">
+                <div class="bar">
+                    <p class="bar__hungerness">Hungerness</p>
+                    <div class="progress">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 1%" aria-valuenow="25"
+                            aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <br>
+                    <p class="bar__title">Playfulness</p>
+                    <div class="progress">
+                        <div class="progress-bar bg-secondary" role="progressbar" style="width: 1%" aria-valuenow="25"
+                            aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <br>
+                    <p class="bar__title">Sleepyness</p>
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 1%" aria-valuenow="25"
+                            aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <br>
+                    <p class="bar__title">Wakefulness</p>
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 1%" aria-valuenow="25"
+                            aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <br>
+                    <p class="bar__title">Dirtyness</p>
+                    <div class="progress">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 1%" aria-valuenow="25"
+                            aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <br>
+                    <p class="bar__title">Healthness</p>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 1%" aria-valuenow="25"
+                            aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </div>
-    <!-- <div class="container">
-        <div class="col">
-            <div class="bar">
-                <p>Hungerness</p>
-                <div class="progress">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 1%" aria-valuenow="25"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <br>
-                <p>Playfulness</p>
-                <div class="progress">
-                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 1%" aria-valuenow="25"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <br>
-                <p>Sleepyness</p>
-                <div class="progress">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 1%" aria-valuenow="25"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <br>
-                <p>Wakefulness</p>
-                <div class="progress">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 1%" aria-valuenow="25"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <br>
-                <p>Dirtyness</p>
-                <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 1%" aria-valuenow="25"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <br>
-                <p>Healthness</p>
-                <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 1%" aria-valuenow="25"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-            </div>
-        </div>
-    </div> -->
 
 
 
