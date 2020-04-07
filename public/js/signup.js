@@ -37,7 +37,9 @@ $(document).ready(function() {
   }
 
   function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
+    $("#alert .msg").text(
+      "Username already in use. Use Login or Create a Different Username."
+    );
     $("#alert").fadeIn(500);
   }
 });
