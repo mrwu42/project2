@@ -32,8 +32,11 @@ $(document).ready(function() {
         window.location.replace("/members");
         // If there's an error, log the error
       })
-      .catch(function(err) {
-        console.log(err);
-      });
+      .catch(handleLoginErr)
+  }
+
+  function handleLoginErr(err) {
+    $("#alert .msg").text("Invalid Password.  Try again!");
+    $("#alert").fadeIn(500);
   }
 });
