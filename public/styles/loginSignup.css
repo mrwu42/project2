@@ -1,13 +1,8 @@
 body {
     background-image: url("https://pbs.twimg.com/media/EKvPJUXU8AAbRko.jpg");
-    position: fixed;
-    /* left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%; */
-    /* background-position: center; */
+    position: absolute; 
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
   }
   .row{
     background-color: lightsalmon;
@@ -19,3 +14,16 @@ body {
     margin-top: 10%;
     margin-left: 50%;
   }
+
+  /* @media only screen and(min-width: 1281px) { 
+    // }
+    // @media (min-width: 1025px) and (max-width: 1280px) {
+    // }
+    // @media (min-width: 768px) and (max-width: 1024px) {
+    // }
+    // @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    // }
+    // @media (min-width: 481px) and (max-width: 767px) {
+    // }
+    // @media (min-width: 320px) and (max-width: 480px) {
+    // } */
