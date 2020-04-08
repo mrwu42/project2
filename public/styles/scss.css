@@ -12,6 +12,7 @@ body {
 }
 
 .header {
+  display: block;
   position: absolute;
   left: 0;
   top: 35;
@@ -38,7 +39,7 @@ body {
 }
 
 .button {
-  display: inline-block;
+  display: block;
   text-align: center;
   width: 160px;
   height: 480px;
@@ -102,7 +103,7 @@ body {
 }
 
 .bar {
-  display: inline-block;
+  display: block;
   background-color: lightsalmon;
   border-radius: 25px;
   -webkit-box-shadow: 5px 10px #c07860;
@@ -126,7 +127,7 @@ body {
 }
 
 .tamagotchi {
-  display: inline-block;
+  display: block;
   width: 256px;
   height: 310px;
   background: #fd5132;

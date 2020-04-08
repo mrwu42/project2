@@ -21,6 +21,7 @@ body {
   // overflow: scroll;
 }
 .header {
+  display: block;
   position: absolute;
   left: 0;
   top: 35;
@@ -47,7 +48,9 @@ body {
 }
 
 .button {
-  display: inline-block;
+  // z-index: 1;
+  // margin-right: 200%;
+  display: block;
   text-align: center;
   width: 160px;
   height: 480px;
@@ -101,7 +104,8 @@ body {
 }
 
 .bar{
-  display: inline-block;
+  // z-index: 1;
+  display: block;
   background-color: lightsalmon;
   border-radius: 25px;
   box-shadow: 5px 10px rgb(192, 120, 96);
@@ -124,7 +128,7 @@ body {
 }
 
 .tamagotchi {
-  display: inline-block;
+    display: block;
     width: 256px;
     height: 310px;
     background: $body-main;
@@ -191,3 +195,29 @@ body {
         box-shadow: 0 1px 1px 1px rgba($white, 0.3);
     }
 }
+
+// @media (min-width: 1281px) { 
+
+// }
+
+
+// @media (min-width: 1025px) and (max-width: 1280px) {
+
+// }
+
+// @media (min-width: 768px) and (max-width: 1024px) {
+
+// }
+
+
+// @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  
+// }
+
+// @media (min-width: 481px) and (max-width: 767px) {
+  
+// }
+
+// @media (min-width: 320px) and (max-width: 480px) {
+  
+// }
