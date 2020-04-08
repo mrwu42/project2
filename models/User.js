@@ -40,5 +40,12 @@ module.exports = function(sequelize, Sequelize) {
       null
     );
   });
+
+  User.associate = function(models) {
+    User.hasOne(models.Pet, {
+      onDelete: 'CASCADE'
+    });
+  };
+
   return User;
 };
