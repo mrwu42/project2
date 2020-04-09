@@ -33,6 +33,35 @@ module.exports = function(app) {
     }
   });
 
+  // Route for getting the current pet data to be used client side
+  app.get("/api/pet_data/:id", function(req, res) {
+    db.Pet.findOne({
+      where: {
+        UserId: req.params.id
+      },
+      include: [db.Character, db.User]
+    }).then(function(dbPet) {
+      res.json(dbPet);
+    });
+  });
+
+  // Route for getting the current pet data to be used client side
+  app.get("/api/character/:id", function(req, res) {
+    db.Character.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbCharacter) {
+      res.json(dbCharacter);
+    });
+  });
+
+  app.post("/api/pet", function(req, res) {
+    db.Pet.create(req.body).then(function(dbPet) {
+      res.json(dbPet);
+    });
+  });
+
   // Route for logging user out
   app.get("/logout", function(req, res) {
     req.logout();
