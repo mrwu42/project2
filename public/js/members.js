@@ -23,6 +23,7 @@ $(document).ready(function() {
 
   // This does a GET request to figure out which user is logged in
   $.get("/api/user_data").then(function(data) {
+<<<<<<< Updated upstream
     console.log("User Info: " + JSON.stringify(data));
     $(".member-name").text("Welcome " + data.username);
     // with the user-id, it will then gather the pet data to update the HTML on the page
@@ -65,5 +66,8 @@ $(document).ready(function() {
         makeProgress(health, resp.medicationProgress, 0);
       }
     });
+=======
+    $(".member-name").text("Welcome " + data.username);
+>>>>>>> Stashed changes
   });
 });
