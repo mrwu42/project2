@@ -43,7 +43,7 @@ module.exports = function(sequelize, Sequelize) {
 
   User.associate = function(models) {
     User.hasOne(models.Pet, {
-      onDelete: 'CASCADE'
+      onDelete: "CASCADE"
     });
   };
 
