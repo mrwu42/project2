@@ -31,13 +31,15 @@ $(document).ready(function() {
     })
       .then(function(data) {
         window.location.replace("/members");
-        // If there's an error, handle it by throwing up a bootstrap alert
       })
+      // If there's an error, handle it by throwing up a bootstrap alert
       .catch(handleLoginErr);
   }
 
   function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
+    $("#alert .msg").text(
+      "Username already in use. Use Login or Create a Different Username."
+    );
     $("#alert").fadeIn(500);
   }
 });

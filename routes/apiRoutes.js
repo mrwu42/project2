@@ -25,13 +25,41 @@ module.exports = function(app) {
       // The user is not logged in, send back an empty object
       res.json({});
     } else {
-      // Otherwise send back the user's email and id
-      // Sending back a password, even a hashed password, isn't a good idea
+      // Otherwise send back the username and id
       res.json({
         username: req.user.username,
         id: req.user.id
       });
     }
+  });
+
+  // Route for getting the current pet data to be used client side
+  app.get("/api/pet_data/:id", function(req, res) {
+    db.Pet.findOne({
+      where: {
+        UserId: req.params.id
+      },
+      include: [db.Character, db.User]
+    }).then(function(dbPet) {
+      res.json(dbPet);
+    });
+  });
+
+  // Route for getting the current pet data to be used client side
+  app.get("/api/character/:id", function(req, res) {
+    db.Character.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbCharacter) {
+      res.json(dbCharacter);
+    });
+  });
+
+  app.post("/api/pet", function(req, res) {
+    db.Pet.create(req.body).then(function(dbPet) {
+      res.json(dbPet);
+    });
   });
 
   // Route for logging user out

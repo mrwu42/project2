@@ -30,10 +30,13 @@ $(document).ready(function() {
     })
       .then(function() {
         window.location.replace("/members");
-        // If there's an error, log the error
       })
-      .catch(function(err) {
-        console.log(err);
-      });
+      // If there's an error, log the error
+      .catch(handleLoginErr)
+  }
+
+  function handleLoginErr(err) {
+    $("#alert .msg").text("Invalid Password.  Try again!");
+    $("#alert").fadeIn(500);
   }
 });
