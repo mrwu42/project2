@@ -33,7 +33,7 @@ module.exports = function(app) {
     }
   });
 
-  // Route for getting the current pet data to be used client side
+  // Route for getting the current pet data with the user and character to be used client side
   app.get("/api/pet_data/:id", function(req, res) {
     db.Pet.findOne({
       where: {
@@ -45,7 +45,7 @@ module.exports = function(app) {
     });
   });
 
-  // Route for getting the current pet data to be used client side
+  // Route for getting the current character data to be used client side
   app.get("/api/character/:id", function(req, res) {
     db.Character.findOne({
       where: {
@@ -53,6 +53,50 @@ module.exports = function(app) {
       }
     }).then(function(dbCharacter) {
       res.json(dbCharacter);
+    });
+  });
+
+  // Route for getting the current pet data to be used client side
+  app.get("/api/pet/:id", function(req, res) {
+    db.Pet.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbPet) {
+      res.json(dbPet);
+    });
+  });
+
+  // Route for updating the current pet data to be used client side
+  app.put("/api/pet/:id", function(req, res) {
+    db.Pet.update(
+      {
+        isHungry: req.body.isHungry,
+        hungerProgress: req.body.hungerProgress,
+        lastFedDT: req.body.lastFedDT,
+        isPlayful: req.body.isPlayful,
+        playfulProgress: req.body.playfulProgress,
+        lastPlayDT: req.body.lastPlayDT,
+        isSleepy: req.body.isSleepy,
+        sleepProgress: req.body.sleepProgress,
+        lastSleepDT: req.body.lastSleepDT,
+        isLoved: req.body.isLoved,
+        loveProgress: req.body.loveProgress,
+        lastLovedDT: req.body.lastLovedDT,
+        isClean: req.body.isClean,
+        cleanProgress: req.body.cleanProgress,
+        lastCleanDT: req.body.lastCleanDT,
+        isMedicated: req.body.isMedicated,
+        medicationProgress: req.body.medicationProgress,
+        lastMedicineDT: req.body.lastMedicineDT
+      },
+      {
+        where: {
+          id: req.params.id
+        }
+      }
+    ).then(function(dbPet) {
+      res.json(dbPet);
     });
   });
 
