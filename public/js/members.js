@@ -24,7 +24,7 @@ $(document).ready(function() {
   // This does a GET request to figure out which user is logged in
   $.get("/api/user_data").then(function(data) {
     console.log("User Info: " + JSON.stringify(data));
-    // $(".member-name").text(data.username);
+    $(".member-name").text(data.username);
     // with the user-id, it will then gather the pet data to update the HTML on the page
     $.get("/api/pet_data/" + data.id).then(function(resp) {
       if (!resp) {
@@ -66,4 +66,16 @@ $(document).ready(function() {
       }
     });
   });
+
+  $("#feedButton").on("click", feedButton);
+
+  $("#playButton").on("click", playButton);
+
+  $("#sleepButton").on("click", sleepButton);
+
+  $("#loveButton").on("click", loveButton);
+
+  $("#cleanButton").on("click", cleanButton);
+
+  $("#medicineButton").on("click", medicineButton);
 });

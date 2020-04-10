@@ -29,6 +29,7 @@ $(document).ready(function() {
       username: username,
       password: password
     })
+      // eslint-disable-next-line no-unused-vars
       .then(function(data) {
         window.location.replace("/members");
       })
@@ -36,6 +37,7 @@ $(document).ready(function() {
       .catch(handleLoginErr);
   }
 
+  // eslint-disable-next-line no-unused-vars
   function handleLoginErr(err) {
     $("#alert .msg").text(
       "Username already in use. Use Login or Create a Different Username."
