@@ -360,6 +360,53 @@ function sleepButton(petId) {
     });
   });
 }
+// execute the specifics of the love button being clicked
+function loveButton(petId) {
+  // gather the current pet row from the DB
+  $.get("/api/pet/" + petId).then(function(resp) {
+    // establish variables for progress bars to be changed
+    var loveBar = resp.loveProgress;
+    // increase love
+    loveBar = (loveBar += 1) > 100 ? 100 : loveBar;
+// gather all the pet column values to pass to the update routine
+var petUpdate = {
+  isHungry: checkStatus(resp.hungerProgress),
+  hungerProgress: resp.hungerProgress,
+  // since this update is for the Feed Button, this will set the DT to the current DT.
+  lastFedDT: setDTStamp(resp.lastFedDT),
+  isPlayful: checkStatus(resp.playfulProgress),
+  playfulProgress: resp.playfulProgress,
+  // execute the DT function in case the value was null - we need a DT to do an update.
+  lastPlayDT: setDTStamp(resp.lastPlayDT),
+  isSleepy: checkStatus(resp.sleepProgress),
+  sleepProgress: resp.sleepProgress,
+  // execute the DT function in case the value was null - we need a DT to do an update.
+  lastSleepDT: setDTStamp(resp.lastSleepDT),
+  isLoved: checkStatus(loveBar),
+  loveProgress: loveBar,
+  // execute the DT function in case the value was null - we need a DT to do an update.
+  lastLovedDT: setDTStamp(resp.lastLovedDT),
+  isClean: checkStatus(resp.cleanProgress),
+  cleanProgress: resp.cleanProgress,
+  // execute the DT function in case the value was null - we need a DT to do an update.
+  lastCleanDT: setDTStamp(resp.lastCleanDT),
+  isMedicated: checkHealth(resp.medicationProgress),
+  medicationProgress: resp.medicationProgress,
+  // execute the DT function in case the value was null - we need a DT to do an update.
+  lastMedicineDT: setDTStamp()
+};
+// call the API route to update the pet row with the provided information
+    $.ajax({
+      method: "PUT",
+      url: "/api/pet/" + petId,
+      data: petUpdate
+    }).then(function() {
+      // return to the page so the new values can be loaded and reflected
+      window.location.href = "/members";
+    });
+  });
+}
+
 // execute the specifics of the clean button being clicked
 function cleanButton(petId) {
   // gather the current pet row from the DB
@@ -423,7 +470,7 @@ function cleanButton(petId) {
   });
 }
 
-// execute the specifics of the sleep button being clicked
+// execute the specifics of the health button being clicked
 function medicineButton(petId) {
   // gather the current pet row from the DB
   $.get("/api/pet/" + petId).then(function(resp) {
