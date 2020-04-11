@@ -70,4 +70,62 @@ $(document).ready(function() {
     $(".member-name").text("Welcome " + data.username);
 >>>>>>> Stashed changes
   });
+<<<<<<< Updated upstream
+=======
+
+  // Feed Button clicked
+  $("body").on("click", "#feedButton", function() {
+    feedButton(petId);
+  });
+
+  // Play Button clicked
+  $("body").on("click", "#playButton", function() {
+    playButton(petId);
+  });
+
+  // Sleep Button clicked
+  $("body").on("click", "#sleepButton", function() {
+    sleepButton(petId);
+  });
+
+  // love Button clicked
+  $("body").on("click", "#loveButton", function() {
+    loveButton(petId);
+  });
+
+  // clean Button clicked
+  $("body").on("click", "#cleanButton", function() {
+    feedButton(petId);
+  });
+
+  // Medicine Button clicked
+  $("body").on("click", "#medicineButton", function() {
+    medicineButton(petId);
+  });
+
+  // display the correct image to the egg!
+  function showImage(pet) {
+    switch (true) {
+      case pet.isHungry:
+        console.log("Display Hungry Image");
+      case pet.isPlayful:
+        console.log("Display Playful Image");
+        break;
+      case pet.isSleepy:
+        console.log("Display Sleepy Image");
+        break;
+      case pet.isLoved:
+        console.log("Display Loved Image");
+        break;
+      case pet.isClean:
+        console.log("Display Dirty Image");
+        break;
+      case pet.isMedicated:
+        console.log("Display Sick Image");
+        break;
+      default:
+        console.log("Display Default Image");
+    }
+  }
+>>>>>>> Stashed changes
 });
