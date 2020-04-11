@@ -6,10 +6,20 @@ module.exports = function(sequelize, Sequelize) {
       defaultValue: 25
     },
 
+    isHungryImg: {
+      type: Sequelize.STRING,
+      defaultValue: "./public/images/typeOne/hungry.png"
+    },
+
     play: {
       type: Sequelize.INTEGER,
       allowNull: false,
       defaultValue: 10
+    },
+
+    isPlayfulImg: {
+      type: Sequelize.STRING,
+      defaultValue: "./public/images/typeOne/happy.png"
     },
 
     sleep: {
@@ -18,10 +28,20 @@ module.exports = function(sequelize, Sequelize) {
       defaultValue: 20
     },
 
+    isSleepyImg: {
+      type: Sequelize.STRING,
+      defaultValue: "./public/images/typeOne/tired.png"
+    },
+
     love: {
       type: Sequelize.INTEGER,
       allowNull: false,
       defaultValue: 0
+    },
+
+    isLovedImg: {
+      type: Sequelize.STRING,
+      defaultValue: "./public/images/typeOne/happytwo.png"
     },
 
     dirty: {
@@ -30,85 +50,25 @@ module.exports = function(sequelize, Sequelize) {
       defaultValue: 0
     },
 
+    isDirtyImg: {
+      type: Sequelize.STRING,
+      defaultValue: "./public/images/typeOne/dirty.png"
+    },
+
     health: {
       type: Sequelize.INTEGER,
       allowNull: false,
       defaultValue: 100
     },
 
-    asleep1: {
-      type: Sequelize.STRING,
-      defaultValue: "./public/images/typeOne/asleep.png"
-    },
-
-    asleep2: {
-      type: Sequelize.STRING,
-      defaultValue: "./public/images/typeOne/asleeptwo.png"
-    },
-
-    dead1: {
+    isSickImg: {
       type: Sequelize.STRING,
       defaultValue: "./public/images/typeOne/dead.png"
     },
 
-    dead2: {
-      type: Sequelize.STRING,
-      defaultValue: "./public/images/typeOne/deadtwo.png"
-    },
-
-    happy1: {
-      type: Sequelize.STRING,
-      defaultValue: "./public/images/typeOne/happy.png"
-    },
-
-    happy2: {
-      type: Sequelize.STRING,
-      defaultValue: "./public/images/typeOne/happytwo.png"
-    },
-
-    hungry1: {
-      type: Sequelize.STRING,
-      defaultValue: "./public/images/typeOne/hungry.png"
-    },
-
-    hungry2: {
-      type: Sequelize.STRING,
-      defaultValue: "./public/images/typeOne/hungrytwo.png"
-    },
-
-    tired1: {
-      type: Sequelize.STRING,
-      defaultValue: "./public/images/typeOne/tired.png"
-    },
-
-    tired2: {
-      type: Sequelize.STRING,
-      defaultValue: "./public/images/typeOne/tiredtwo.png"
-    },
-
-    nrmlopen: {
+    isDefaultImg: {
       type: Sequelize.STRING,
       defaultValue: "./public/images/typeOne/nrmlopen.png"
-    },
-
-    nrmlclsd: {
-      type: Sequelize.STRING,
-      defaultValue: "./public/images/typeOne/nrmlclsd.png"
-    },
-
-    gameover1: {
-      type: Sequelize.STRING,
-      defaultValue: "./public/images/typeOne/gameover.png"
-    },
-
-    gameover2: {
-      type: Sequelize.STRING,
-      defaultValue: "./public/images/typeOne/gameovertwo.png"
-    },
-
-    gameover3: {
-      type: Sequelize.STRING,
-      defaultValue: "./public/images/typeOne/gameoverthree.png"
     }
   });
 
