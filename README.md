@@ -49,7 +49,7 @@ A virtual pet to play with, love, and take care of in the way of the original *T
 ├── project2
 │   ├── config
 |   │   ├── middleware
-    │   │   └── isAuthenticated.js
+|   │   │   └── isAuthenticated.js
 │   │   ├── config.js
 │   │   └── passport.js
 │   ├── db
@@ -62,7 +62,25 @@ A virtual pet to play with, love, and take care of in the way of the original *T
 │   │   └── User.js
 │   ├── public
 │   |    ├── images
-│   │    |   └──  
+│   │    |   ├── typeOne
+│   │    |   |   ├── asleep.png
+│   │    |   |   ├── asleeptwo.png
+│   │    |   |   ├── dead.png
+│   │    |   |   ├── deadtwo.png
+│   │    |   |   ├── dirty.png
+│   │    |   |   ├── gameover.png
+│   │    |   |   ├── gameoverthree.png
+│   │    |   |   ├── gameovertwo.png
+│   │    |   |   ├── happy.png
+│   │    |   |   ├── happytwo.png
+│   │    |   |   ├── hungry.png
+│   │    |   |   ├── hungrytwo.png
+│   │    |   |   ├── nrmlclsd.png
+│   │    |   |   ├── nrmlopen.png
+│   │    |   |   ├── tired.png
+│   │    |   |   └── tiredtwo.png
+│   │    |   └── typeTwo
+│   │    |       └── happysam.png
 │   |    ├── js
 │   │    |   ├── index.js
 │   │    |   ├── login.js
