@@ -38,6 +38,24 @@ body {
   border-radius: 25px;
 }
 
+.member-name {
+  text-align: center;
+  margin-top: 20px;
+  font-family: 'Orbitron', sans-serif;
+  background-color: lightsalmon;
+  border-radius: 25px;
+  width: 300px;
+  font-size: x-large;
+  position: relative;
+  left: 400px;
+}
+
+.logout {
+  text-align: center;
+  position: relative;
+  top: 800px;
+}
+
 .button {
   display: block;
   text-align: center;
