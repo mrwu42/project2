@@ -156,7 +156,9 @@ $(document).ready(function() {
       console.log("Display Sick Image");
       break;
     default:
-      console.log("Display Default Image");
+      console.log(JSON.stringify(pet));
+      // $(".screen__inner").append("<img id='imgDefault' src='"+ pets.characters.isDefaultImg +"'/>")
+      $(".screen__inner").append("<img id='imgDefault' src='../images/typeOne/nrmlopen.png'/>")
     }
   }
 });
