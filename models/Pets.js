@@ -42,16 +42,16 @@ module.exports = function(sequelize, DataTypes) {
     },
 
     // Wake
-    isAwake: {
+    isLoved: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },
 
-    wakeProgress: {
+    loveProgress: {
       type: DataTypes.INTEGER
     },
 
-    lastWakeDT: {
+    lastLovedDT: {
       type: DataTypes.DATE
     },
 
