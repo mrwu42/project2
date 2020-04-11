@@ -9,6 +9,7 @@ A virtual pet to play with, love, and take care of in the way of the original *T
 
 ## Contents
 * [Tech Used](https://github.com/mrwu42/project2#tech-used)
+* [To Install Locally](https://github.com/mrwu42/project2#to-install-locally)
 * [Original Design Notes](https://github.com/mrwu42/project2#original-design-notes)
 
 ## Tech Used
@@ -110,6 +111,62 @@ A virtual pet to play with, love, and take care of in the way of the original *T
 ├── README.md
 └── server.js
 ```
+
+## To Install Locally
+
+1. Fork the the repository into your own space on GitHub
+1. Clone your forked repository into your own workspace.
+1. Within the terminal and the folder containing the repository, you must install the required node package dependencies defined in the **package.json** file into your folder.  Trigger the package install  
+
+>
+> npm i 
+> 
+
+4. Create an environment `.env` file to contain information needed about your particular MySQL database server to be able to connect:
+
+        DB_HOST=????
+        DB_USER=????
+        DB_PASS=????
+        DB_DATABASE=virtualpet_db
+
+5. Update the specifics according to your system settings and save.
+1. Open MySQL Workbench and connect to the Server that you identified in the environment variables.
+1. In a new Query Window, copy and run the following commands that are also found in the `/db/schema.sql` file.
+
+        DROP DATABASE IF EXISTS virtualpet_db;
+        CREATE DATABASE virtualpet_db;
+
+8. Within the Terminal Window, Trigger `node` to open the **server** file, starting the app and building the DB tables.
+
+>
+> node server 
+> 
+
+9. Back in the MSQL Workbench, insert a default row into the Characters table by copying and running the following commands that are also found in the `/db/seeds.sql` file.
+
+        -- use the specified database
+        use virtualpet_db;
+    
+        -- create defaults for the sequelized createdAt and updatedAt to be able to insert a row
+        alter table characters modify column createdAt 
+        timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;
+        alter table characters modify column updatedAt 
+        timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;
+
+        -- Insert the default character into the characters table
+        INSERT INTO characters (hunger, play, sleep, love, dirty, health)
+        VALUES (70, 50, 50, 10, 50, 80);
+
+10. Verify that there are 3 tables within the virtualpet_db similar to this screen: 
+
+    ![Screenshot for DB validation](./public/images/ScreenShots/validateDB.jpg)
+
+11. The server should still be running, go to `localhost:3000/` to be taken to the Home Page 
+
+    ![Screenshot for Home Page](./public/images/ScreenShots/Signup.jpg)
+
+
+
 
 ## Original Design Notes 
 Tamagotchi (Covid Quarantine Pets)
