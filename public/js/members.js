@@ -114,7 +114,6 @@ $(document).ready(function() {
     });
   });
 
-
   // Feed Button clicked
   $("body").on("click", "#feedButton", function() {
     feedButton(petId);
@@ -148,30 +147,6 @@ $(document).ready(function() {
   // display the correct image to the egg!
   function showImage(pet) {
     switch (true) {
-
-      case pet.isHungry:
-        console.log("Display Hungry Image");
-      case pet.isPlayful:
-        console.log("Display Playful Image");
-        break;
-      case pet.isSleepy:
-        console.log("Display Sleepy Image");
-        break;
-      case pet.isLoved:
-        console.log("Display Loved Image");
-        break;
-      case pet.isClean:
-        console.log("Display Dirty Image");
-        break;
-      case pet.isMedicated:
-        console.log("Display Sick Image");
-        break;
-      default:
-        console.log("Display Default Image");
-    }
-  }
-
-
     case pet.isHungry:
       console.log("Display Hungry Image");
       break;
@@ -194,7 +169,6 @@ $(document).ready(function() {
       console.log("Display Default Image");
     }
   }
-
 });
 
 // execute the specifics of the feed button being clicked
