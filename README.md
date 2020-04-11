@@ -1,5 +1,99 @@
-# project2
+# Quarantine Pets
+A group developed Full Stack application using the **MVC** design pattern.  
 
+In our current hard times of Quarantine, people need a friend to interact with to escape.   Welcome to **Quarantine Pets!**  
+A virtual pet to play with, love, and take care of in the way of the original *Tamagotchi*. 
+
+# Authors 
+> Justin Acosta, Helen Maschmeyer, Tim Shaffer, & Wayne Wu
+
+## Contents
+* [Tech Used](https://github.com/mrwu42/project2#tech-used)
+* [Original Design Notes](https://github.com/mrwu42/project2#original-design-notes)
+
+## Tech Used
+* JavaScript
+    * constructors
+* Node.js
+    * Express
+        * get 
+        * post
+        * put
+        * use
+        * engine
+        * set
+    * Express  
+    * bcrypt.js
+    * mysql
+    * mysql2
+    * passport
+    * sequelize
+* HTML 
+* CSS
+    * SCSS
+* Bootstrap
+* jQuery
+* MySQL
+    * SQL 
+        * CREATE DATABASE
+        * USE DATABASE
+        * CREATE TABLE
+        * INSERT INTO
+        * ALTER TABLE
+        * SELECT 
+        * UPDATE 
+
+### MVC Directory Structure
+
+```bash
+├── project2
+│   ├── config
+|   │   ├── middleware
+    │   │   └── isAuthenticated.js
+│   │   ├── config.js
+│   │   └── passport.js
+│   ├── db
+│   │   ├── schema.sql
+│   │   └── seeds.sql
+│   ├── models
+│   │   ├── Character.js
+│   │   ├── index.js
+│   │   ├── Pets.js
+│   │   └── User.js
+│   ├── public
+│   |    ├── images
+│   │    |   └──  
+│   |    ├── js
+│   │    |   ├── index.js
+│   │    |   ├── login.js
+│   │    |   ├── members.js
+│   │    |   └── signup.js
+│   |    ├── styles
+│   │    |   ├── loginSignup.css
+│   │    |   ├── main.css
+│   │    |   ├── scss.css
+│   │    |   ├── scs.css.map
+│   │    |   └── scss.scss
+|   |    ├── login.html
+|   |    ├── members.html
+|   |    └── signup.html
+│   ├── routes
+│   │   ├── apiRoutes.js
+│   │   └── htmlRoutes.js
+│   └── test
+│   │   └── canary.test.js
+├── .env
+├── .eslintignore
+├── .eslintrc.json
+├── .gitignore
+├── .travis.yml
+├── package-lock.json
+├── package.json
+├── README.md
+└── server.js
+```
+
+## Original Design Notes 
 Tamagotchi (Covid Quarantine Pets)
 
 1) Logins (passport) Tim
