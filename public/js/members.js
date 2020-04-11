@@ -6,10 +6,8 @@ function makeProgress(attr, endpoint, i) {
     attr.css("width", i + "%").text(i + " %");
     bar = setTimeout(makeProgress(attr, endpoint, i), 1000);
   }
-
   clearTimeout(bar);
 }
-
 // if the parameter passed in has a value, simply return that same value
 // if the parameter is NULL or not valued, calculate and format a DateTime to use
 // from Stack Overflow https://stackoverflow.com/questions/5129624/convert-js-date-time-to-mysql-datetime
@@ -34,7 +32,6 @@ function setDTStamp(DateTime) {
     return DateTime;
   }
 }
-
 // make each part of the DateTime stamp two digits
 // from Stack Overflow https://stackoverflow.com/questions/5129624/convert-js-date-time-to-mysql-datetime
 function twoDigits(d) {
@@ -46,17 +43,14 @@ function twoDigits(d) {
   }
   return d.toString();
 }
-
 // when a particular progress bar goes above 80, that status is set to true
 function checkStatus(bar) {
   return bar >= 80;
 }
-
 // when the health progress bar goes below 25, that status is set to true
 function checkHealth(bar) {
   return bar <= 25;
 }
-
 // when the document has been loaded.
 $(document).ready(function() {
   var dirty = $("#dirty");
@@ -65,9 +59,7 @@ $(document).ready(function() {
   var love = $("#love");
   var play = $("#play");
   var sleep = $("#sleep");
-
   var petId;
-
   // This does a GET request to figure out which user is logged in
   $.get("/api/user_data").then(function(data) {
     $(".member-name").text("Welcome " + data.username);
@@ -113,53 +105,51 @@ $(document).ready(function() {
       }
     });
   });
-
   // Feed Button clicked
   $("body").on("click", "#feedButton", function() {
     feedButton(petId);
   });
-
   // Play Button clicked
   $("body").on("click", "#playButton", function() {
     playButton(petId);
   });
-
   // Sleep Button clicked
   $("body").on("click", "#sleepButton", function() {
     sleepButton(petId);
   });
-
   // love Button clicked
   $("body").on("click", "#loveButton", function() {
     loveButton(petId);
   });
-
   // clean Button clicked
   $("body").on("click", "#cleanButton", function() {
-    feedButton(petId);
+    cleanButton(petId);
   });
-
   // Medicine Button clicked
   $("body").on("click", "#medicineButton", function() {
     medicineButton(petId);
   });
-
   // display the correct image to the egg!
   function showImage(pet) {
     switch (true) {
     case pet.isHungry:
+      // isHungryImg
       console.log("Display Hungry Image");
       break;
     case pet.isPlayful:
+      // isPlayfulImg
       console.log("Display Playful Image");
       break;
     case pet.isSleepy:
+      // isSleepyImg
       console.log("Display Sleepy Image");
       break;
     case pet.isLoved:
+      // isLovedImg
       console.log("Display Loved Image");
       break;
     case pet.isClean:
+      // isDirtyImg
       console.log("Display Dirty Image");
       break;
     case pet.isMedicated:
@@ -170,7 +160,6 @@ $(document).ready(function() {
     }
   }
 });
-
 // execute the specifics of the feed button being clicked
 function feedButton(petId) {
   // gather the current pet row from the DB
@@ -196,7 +185,6 @@ function feedButton(petId) {
     // increase the sleepiness
     sleepyBar =
       (sleepyBar += Math.floor(Math.random() * 5) + 5) > 100 ? 100 : sleepyBar;
-
     // gather all the pet column values to pass to the update routine
     var petUpdate = {
       isHungry: checkStatus(hungerBar),
@@ -224,7 +212,6 @@ function feedButton(petId) {
       // execute the DT function in case the value was null - we need a DT to do an update.
       lastMedicineDT: setDTStamp(resp.lastMedicineDT)
     };
-
     // call the API route to update the pet row with the provided information
     $.ajax({
       method: "PUT",
@@ -236,7 +223,6 @@ function feedButton(petId) {
     });
   });
 }
-
 // execute the specifics of the play button being clicked
 function playButton(petId) {
   // gather the current pet row from the DB
@@ -248,7 +234,6 @@ function playButton(petId) {
     var cleanBar = resp.cleanProgress;
     var loveBar = resp.loveProgress;
     var healthBar = resp.medicationProgress;
-
     // if playfulness is below 30 but still tried to play, the health and love are reduced
     if (playBar < 30) {
       healthBar =
@@ -261,19 +246,15 @@ function playButton(petId) {
     }
     // reduce the playfulness
     playBar = (playBar -= Math.floor(Math.random() * 5) + 5) < 0 ? 0 : playBar;
-
     // increase the hunger
     hungerBar =
       (hungerBar += Math.floor(Math.random() * 5) + 5) < 0 ? 0 : hungerBar;
-
     // increase the sleepiness
     sleepyBar =
       (sleepyBar += Math.floor(Math.random() * 5) + 5) > 100 ? 100 : sleepyBar;
-
     // increase the dirtyness
     cleanBar =
       (cleanBar += Math.floor(Math.random() * 10) + 10) > 100 ? 100 : cleanBar;
-
     // gather all the pet column values to pass to the update routine
     var petUpdate = {
       isHungry: checkStatus(hungerBar),
@@ -301,7 +282,6 @@ function playButton(petId) {
       // execute the DT function in case the value was null - we need a DT to do an update.
       lastMedicineDT: setDTStamp(resp.lastMedicineDT)
     };
-
     // call the API route to update the pet row with the provided information
     $.ajax({
       method: "PUT",
@@ -313,7 +293,6 @@ function playButton(petId) {
     });
   });
 }
-
 // execute the specifics of the sleep button being clicked
 function sleepButton(petId) {
   // gather the current pet row from the DB
@@ -324,7 +303,6 @@ function sleepButton(petId) {
     var hungerBar = resp.hungerProgress;
     var loveBar = resp.loveProgress;
     var healthBar = resp.medicationProgress;
-
     // if sleepiness is below 30 but still tried to sleep, the health and love are reduced
     if (sleepyBar < 30) {
       healthBar =
@@ -338,15 +316,12 @@ function sleepButton(petId) {
     // reduce the sleepiness
     sleepyBar =
       (sleepyBar -= Math.floor(Math.random() * 5) + 5) < 0 ? 0 : sleepyBar;
-
     // increase the playfulness
     playBar =
       (playBar += Math.floor(Math.random() * 10) + 10) > 100 ? 100 : playBar;
-
     // increase the hunger
     hungerBar =
       (hungerBar += Math.floor(Math.random() * 5) + 5) < 0 ? 0 : hungerBar;
-
     // gather all the pet column values to pass to the update routine
     var petUpdate = {
       isHungry: checkStatus(hungerBar),
@@ -374,7 +349,68 @@ function sleepButton(petId) {
       // execute the DT function in case the value was null - we need a DT to do an update.
       lastMedicineDT: setDTStamp(resp.lastMedicineDT)
     };
-
+    // call the API route to update the pet row with the provided information
+    $.ajax({
+      method: "PUT",
+      url: "/api/pet/" + petId,
+      data: petUpdate
+    }).then(function() {
+      // return to the page so the new values can be loaded and reflected
+      window.location.href = "/members";
+    });
+  });
+}
+// execute the specifics of the clean button being clicked
+function cleanButton(petId) {
+  // gather the current pet row from the DB
+  $.get("/api/pet/" + petId).then(function(resp) {
+    // establish variables for progress bars to be changed
+    var cleanBar = resp.cleanProgress;
+    var loveBar = resp.loveProgress;
+    var healthBar = resp.medicationProgress;
+    // if dirtyness bar is below 30 but still tried to clean, the love and health are reduced
+    if (cleanBar < 30) {
+      loveBar = (loveBar -= 2) < 0 ? 0 : loveBar;
+    }
+    // playing happend at an OK time, increase the love
+    else {
+      loveBar = (loveBar += 1) > 100 ? 100 : loveBar;
+    }
+    // reduce the health
+    if (cleanBar > 80) {
+      healthBar =
+        (healthBar -= Math.floor(Math.random() * 5) + 5) < 0 ? 0 : healthBar;
+    }
+    // reduce the dirtyness
+    cleanBar =
+      (cleanBar -= Math.floor(Math.random() * 5) + 5) < 0 ? 0 : cleanBar;
+    // gather all the pet column values to pass to the update routine
+    var petUpdate = {
+      isHungry: checkStatus(resp.hungerProgress),
+      hungerProgress: resp.hungerProgress,
+      // execute the DT function in case the value was null - we need a DT to do an update.
+      lastFedDT: setDTStamp(resp.lastFedDT),
+      isPlayful: checkStatus(resp.playfulProgress),
+      playfulProgress: resp.playfulProgress,
+      // execute the DT function in case the value was null - we need a DT to do an update.
+      lastPlayDT: setDTStamp(resp.lastPlayDT),
+      isSleepy: checkStatus(resp.sleepProgress),
+      sleepProgress: resp.sleepProgress,
+      // since this update is for the Sleep Button, this will set the DT to the current DT.
+      lastSleepDT: setDTStamp(resp.lastSleepDT),
+      isLoved: checkStatus(loveBar),
+      loveProgress: loveBar,
+      // execute the DT function in case the value was null - we need a DT to do an update.
+      lastLovedDT: setDTStamp(resp.lastLovedDT),
+      isClean: checkStatus(cleanBar),
+      cleanProgress: cleanBar,
+      // execute the DT function in case the value was null - we need a DT to do an update.
+      lastCleanDT: setDTStamp(),
+      isMedicated: checkHealth(healthBar),
+      medicationProgress: healthBar,
+      // execute the DT function in case the value was null - we need a DT to do an update.
+      lastMedicineDT: setDTStamp(resp.lastMedicineDT)
+    };
     // call the API route to update the pet row with the provided information
     $.ajax({
       method: "PUT",
