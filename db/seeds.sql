@@ -9,4 +9,4 @@ timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;
 
 -- Insert the default character into the characters table
 INSERT INTO characters (hunger, play, sleep, love, dirty, health)
-VALUES (25, 10, 20, 0, 0, 100);
+VALUES (70, 50, 50, 10, 50, 80);

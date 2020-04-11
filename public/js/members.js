@@ -89,7 +89,12 @@ $(document).ready(function() {
             makeProgress(dirty, newPet.cleanProgress, 0);
             makeProgress(health, newPet.medicationProgress, 0);
             petId = newPet.id;
-            showImage(newPet);
+            console.log("newPet" + JSON.stringify(newPet));
+            // get the pet data for the user to include character images.
+            $.get("/api/pet_data/" + newPet.UserId).then(function(resp) {
+              console.log("resp" + JSON.stringify(resp));
+              showImage(resp);
+            });
           });
         });
       } else {
@@ -259,7 +264,7 @@ function playButton(petId) {
     playBar = (playBar -= Math.floor(Math.random() * 15) + 5) < 0 ? 0 : playBar;
     // increase the hunger
     hungerBar =
-      (hungerBar += Math.floor(Math.random() * 5) + 5) > 100 ? 0 : hungerBar;
+      (hungerBar += Math.floor(Math.random() * 5) + 5) > 100 ? 100 : hungerBar;
     // increase the sleepiness
     sleepyBar =
       (sleepyBar += Math.floor(Math.random() * 5) + 5) > 100 ? 100 : sleepyBar;
@@ -332,7 +337,7 @@ function sleepButton(petId) {
       (playBar += Math.floor(Math.random() * 5) + 10) > 100 ? 100 : playBar;
     // increase the hunger
     hungerBar =
-      (hungerBar += Math.floor(Math.random() * 5) + 5) > 100 ? 0 : hungerBar;
+      (hungerBar += Math.floor(Math.random() * 5) + 5) > 100 ? 100 : hungerBar;
     // gather all the pet column values to pass to the update routine
     var petUpdate = {
       isHungry: checkStatus(hungerBar),
@@ -340,7 +345,7 @@ function sleepButton(petId) {
       // execute the DT function in case the value was null - we need a DT to do an update.
       lastFedDT: setDTStamp(resp.lastFedDT),
       isPlayful: checkStatus(playBar),
-      playfulProgress: resp.playfulProgress,
+      playfulProgress: playBar,
       // execute the DT function in case the value was null - we need a DT to do an update.
       lastPlayDT: setDTStamp(resp.lastPlayDT),
       isSleepy: checkStatus(sleepyBar),
@@ -426,6 +431,8 @@ function cleanButton(petId) {
     var cleanBar = resp.cleanProgress;
     var loveBar = resp.loveProgress;
     var healthBar = resp.medicationProgress;
+    var sleepyBar = resp.sleepProgress;
+    var playBar = resp.playfulProgress;
     // if dirtyness bar is below 30 but still tried to clean, the love and health are reduced
     if (cleanBar < 30) {
       loveBar = (loveBar -= 2) < 0 ? 0 : loveBar;
@@ -442,14 +449,18 @@ function cleanButton(petId) {
     // reduce the dirtyness
     cleanBar =
       (cleanBar -= Math.floor(Math.random() * 15) + 5) < 0 ? 0 : cleanBar;
+    // increase the sleepiness
+    sleepyBar = (sleepyBar += Math.floor(Math.random() * 5) + 5) > 100 ? 100 : sleepyBar;
+    // increase the playfulness
+    playBar = (playBar += Math.floor(Math.random() * 5) + 5) > 100 ? 100 : playBar;
     // gather all the pet column values to pass to the update routine
     var petUpdate = {
       isHungry: checkStatus(resp.hungerProgress),
       hungerProgress: resp.hungerProgress,
       // execute the DT function in case the value was null - we need a DT to do an update.
       lastFedDT: setDTStamp(resp.lastFedDT),
-      isPlayful: checkStatus(resp.playfulProgress),
-      playfulProgress: resp.playfulProgress,
+      isPlayful: checkStatus(playBar),
+      playfulProgress: playBar,
       // execute the DT function in case the value was null - we need a DT to do an update.
       lastPlayDT: setDTStamp(resp.lastPlayDT),
       isSleepy: checkStatus(resp.sleepProgress),
