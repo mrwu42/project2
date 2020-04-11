@@ -422,3 +422,54 @@ function cleanButton(petId) {
     });
   });
 }
+
+// execute the specifics of the sleep button being clicked
+function medicineButton(petId) {
+// gather the current pet row from the DB
+  $.get("/api/pet/" + petId).then(function(resp) {
+// establish variables for progress bars to be changed
+var healthBar = resp.medicationProgress;
+var loveBar = resp.loveProgress;
+// increase health
+    healthBar = (healthBar += Math.floor(Math.random() * 5) + 5) < 0 ? 0 : healthBar;
+// increase love
+    loveBar = (loveBar += 1) > 100 ? 100 : loveBar;
+
+// gather all the pet column values to pass to the update routine
+var petUpdate = {
+  isHungry: checkStatus(resp.hungerProgress),
+  hungerProgress: resp.hungerProgress,
+  // since this update is for the Feed Button, this will set the DT to the current DT.
+  lastFedDT: setDTStamp(resp.lastFedDT),
+  isPlayful: checkStatus(resp.playfulProgress),
+  playfulProgress: resp.playfulProgress,
+  // execute the DT function in case the value was null - we need a DT to do an update.
+  lastPlayDT: setDTStamp(resp.lastPlayDT),
+  isSleepy: checkStatus(resp.sleepProgress),
+  sleepProgress: resp.sleepProgress,
+  // execute the DT function in case the value was null - we need a DT to do an update.
+  lastSleepDT: setDTStamp(resp.lastSleepDT),
+  isLoved: checkStatus(loveBar),
+  loveProgress: loveBar,
+  // execute the DT function in case the value was null - we need a DT to do an update.
+  lastLovedDT: setDTStamp(resp.lastLovedDT),
+  isClean: checkStatus(resp.cleanProgress),
+  cleanProgress: resp.cleanProgress,
+  // execute the DT function in case the value was null - we need a DT to do an update.
+  lastCleanDT: setDTStamp(resp.lastCleanDT),
+  isMedicated: checkHealth(healthBar),
+  medicationProgress: healthBar,
+  // execute the DT function in case the value was null - we need a DT to do an update.
+  lastMedicineDT: setDTStamp()
+};
+// call the API route to update the pet row with the provided information
+    $.ajax({
+      method: "PUT",
+      url: "/api/pet/" + petId,
+      data: petUpdate
+    }).then(function() {
+      // return to the page so the new values can be loaded and reflected
+      window.location.href = "/members";
+    });
+  });
+}
