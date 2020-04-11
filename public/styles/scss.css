@@ -131,7 +131,7 @@ body {
   position: fixed;
   padding-left: 5px;
   padding-right: 5px;
-  right: 45%;
+  right: 42%;
   top: 25%;
 }
 
@@ -159,7 +159,7 @@ body {
           user-select: none;
   -webkit-box-shadow: 10px 10px 40px -20px rgba(0, 0, 0, 0.4);
           box-shadow: 10px 10px 40px -20px rgba(0, 0, 0, 0.4);
-  right: 3%;
+  right: -2%;
   top: 2000%;
   overflow: visible;
 }
