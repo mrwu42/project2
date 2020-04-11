@@ -50,7 +50,7 @@ module.exports = function(sequelize, Sequelize) {
       defaultValue: 0
     },
 
-    isCleanImg: {
+    isDirtyImg: {
       type: Sequelize.STRING,
       defaultValue: "./public/images/typeOne/dirty.png"
     },
@@ -61,7 +61,7 @@ module.exports = function(sequelize, Sequelize) {
       defaultValue: 100
     },
 
-    isMedicatedImg: {
+    isSickImg: {
       type: Sequelize.STRING,
       defaultValue: "./public/images/typeOne/dead.png"
     },
