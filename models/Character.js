@@ -8,7 +8,7 @@ module.exports = function(sequelize, Sequelize) {
 
     isHungryImg: {
       type: Sequelize.STRING,
-      defaultValue: "./public/images/typeOne/hungry.png"
+      defaultValue: "../images/typeOne/hungry.png"
     },
 
     play: {
@@ -19,7 +19,7 @@ module.exports = function(sequelize, Sequelize) {
 
     isPlayfulImg: {
       type: Sequelize.STRING,
-      defaultValue: "./public/images/typeOne/happy.png"
+      defaultValue: "../images/typeOne/happy.png"
     },
 
     sleep: {
@@ -30,7 +30,7 @@ module.exports = function(sequelize, Sequelize) {
 
     isSleepyImg: {
       type: Sequelize.STRING,
-      defaultValue: "./public/images/typeOne/tired.png"
+      defaultValue: "../images/typeOne/tired.png"
     },
 
     love: {
@@ -41,7 +41,7 @@ module.exports = function(sequelize, Sequelize) {
 
     isLovedImg: {
       type: Sequelize.STRING,
-      defaultValue: "./public/images/typeOne/happytwo.png"
+      defaultValue: "../images/typeOne/happytwo.png"
     },
 
     dirty: {
@@ -52,7 +52,7 @@ module.exports = function(sequelize, Sequelize) {
 
     isDirtyImg: {
       type: Sequelize.STRING,
-      defaultValue: "./public/images/typeOne/dirty.png"
+      defaultValue: "../images/typeOne/dirty.png"
     },
 
     health: {
@@ -63,12 +63,12 @@ module.exports = function(sequelize, Sequelize) {
 
     isSickImg: {
       type: Sequelize.STRING,
-      defaultValue: "./public/images/typeOne/dead.png"
+      defaultValue: "../images/typeOne/dead.png"
     },
 
     isDefaultImg: {
       type: Sequelize.STRING,
-      defaultValue: "./public/images/typeOne/nrmlopen.png"
+      defaultValue: "../images/typeOne/nrmlopen.png"
     }
   });
 

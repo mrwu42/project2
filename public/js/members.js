@@ -89,7 +89,12 @@ $(document).ready(function() {
             makeProgress(dirty, newPet.cleanProgress, 0);
             makeProgress(health, newPet.medicationProgress, 0);
             petId = newPet.id;
-            showImage(newPet);
+            console.log("newPet" + JSON.stringify(newPet));
+            // get the pet data for the user to include character images.
+            $.get("/api/pet_data/" + newPet.UserId).then(function(resp) {
+              console.log("resp" + JSON.stringify(resp));
+              showImage(resp);
+            });
           });
         });
       } else {
@@ -131,34 +136,43 @@ $(document).ready(function() {
   });
   // display the correct image to the egg!
   function showImage(pet) {
+    console.log(JSON.stringify(pet));
     switch (true) {
     case pet.isHungry:
-      // isHungryImg
-      console.log("Display Hungry Image");
+      $(".screen__inner").append(
+        "<img id='imgDefault' src='" + pet.Character.isHungryImg + "'/>"
+      );
       break;
     case pet.isPlayful:
-      // isPlayfulImg
-      console.log("Display Playful Image");
+      $(".screen__inner").append(
+        "<img id='imgDefault' src='" + pet.Character.isPlayfulImg + "'/>"
+      );
       break;
     case pet.isSleepy:
-      // isSleepyImg
-      console.log("Display Sleepy Image");
+      $(".screen__inner").append(
+        "<img id='imgDefault' src='" + pet.Character.isSleepyImg + "'/>"
+      );
       break;
-    case pet.isLoved:
-      // isLovedImg
-      console.log("Display Loved Image");
       break;
     case pet.isClean:
-      // isDirtyImg
-      console.log("Display Dirty Image");
+      $(".screen__inner").append(
+        "<img id='imgDefault' src='" + pet.Character.isDirtyImg + "'/>"
+      );
       break;
     case pet.isMedicated:
-      console.log("Display Sick Image");
+      $(".screen__inner").append(
+        "<img id='imgDefault' src='" + pet.Character.isSickImg + "'/>"
+      );
       break;
+      case pet.isLoved:
+        $(".screen__inner").append(
+          "<img id='imgDefault' src='" + pet.Character.isLovedImg + "'/>"
+        );
     default:
       console.log(JSON.stringify(pet));
-      // $(".screen__inner").append("<img id='imgDefault' src='"+ pets.characters.isDefaultImg +"'/>")
-      $(".screen__inner").append("<img id='imgDefault' src='../images/typeOne/nrmlopen.png'/>")
+      $(".screen__inner").append(
+        "<img id='imgDefault' src='" + pet.Character.isDefaultImg + "'/>"
+      );
     }
   }
 });
@@ -183,7 +197,7 @@ function feedButton(petId) {
     }
     // reduce the hunger
     hungerBar =
-      (hungerBar -= Math.floor(Math.random() * 5) + 5) < 0 ? 0 : hungerBar;
+      (hungerBar -= Math.floor(Math.random() * 15) + 5) < 0 ? 0 : hungerBar;
     // increase the sleepiness
     sleepyBar =
       (sleepyBar += Math.floor(Math.random() * 5) + 5) > 100 ? 100 : sleepyBar;
@@ -247,10 +261,10 @@ function playButton(petId) {
       loveBar = (loveBar += 1) > 100 ? 100 : loveBar;
     }
     // reduce the playfulness
-    playBar = (playBar -= Math.floor(Math.random() * 5) + 5) < 0 ? 0 : playBar;
+    playBar = (playBar -= Math.floor(Math.random() * 15) + 5) < 0 ? 0 : playBar;
     // increase the hunger
     hungerBar =
-      (hungerBar += Math.floor(Math.random() * 5) + 5) < 0 ? 0 : hungerBar;
+      (hungerBar += Math.floor(Math.random() * 5) + 5) > 100 ? 100 : hungerBar;
     // increase the sleepiness
     sleepyBar =
       (sleepyBar += Math.floor(Math.random() * 5) + 5) > 100 ? 100 : sleepyBar;
@@ -317,13 +331,13 @@ function sleepButton(petId) {
     }
     // reduce the sleepiness
     sleepyBar =
-      (sleepyBar -= Math.floor(Math.random() * 5) + 5) < 0 ? 0 : sleepyBar;
+      (sleepyBar -= Math.floor(Math.random() * 15) + 5) < 0 ? 0 : sleepyBar;
     // increase the playfulness
     playBar =
-      (playBar += Math.floor(Math.random() * 10) + 10) > 100 ? 100 : playBar;
+      (playBar += Math.floor(Math.random() * 5) + 10) > 100 ? 100 : playBar;
     // increase the hunger
     hungerBar =
-      (hungerBar += Math.floor(Math.random() * 5) + 5) < 0 ? 0 : hungerBar;
+      (hungerBar += Math.floor(Math.random() * 5) + 5) > 100 ? 100 : hungerBar;
     // gather all the pet column values to pass to the update routine
     var petUpdate = {
       isHungry: checkStatus(hungerBar),
@@ -331,7 +345,7 @@ function sleepButton(petId) {
       // execute the DT function in case the value was null - we need a DT to do an update.
       lastFedDT: setDTStamp(resp.lastFedDT),
       isPlayful: checkStatus(playBar),
-      playfulProgress: resp.playfulProgress,
+      playfulProgress: playBar,
       // execute the DT function in case the value was null - we need a DT to do an update.
       lastPlayDT: setDTStamp(resp.lastPlayDT),
       isSleepy: checkStatus(sleepyBar),
@@ -369,35 +383,35 @@ function loveButton(petId) {
     // establish variables for progress bars to be changed
     var loveBar = resp.loveProgress;
     // increase love
-    loveBar = (loveBar += 1) > 100 ? 100 : loveBar;
-// gather all the pet column values to pass to the update routine
-var petUpdate = {
-  isHungry: checkStatus(resp.hungerProgress),
-  hungerProgress: resp.hungerProgress,
-  // since this update is for the Feed Button, this will set the DT to the current DT.
-  lastFedDT: setDTStamp(resp.lastFedDT),
-  isPlayful: checkStatus(resp.playfulProgress),
-  playfulProgress: resp.playfulProgress,
-  // execute the DT function in case the value was null - we need a DT to do an update.
-  lastPlayDT: setDTStamp(resp.lastPlayDT),
-  isSleepy: checkStatus(resp.sleepProgress),
-  sleepProgress: resp.sleepProgress,
-  // execute the DT function in case the value was null - we need a DT to do an update.
-  lastSleepDT: setDTStamp(resp.lastSleepDT),
-  isLoved: checkStatus(loveBar),
-  loveProgress: loveBar,
-  // execute the DT function in case the value was null - we need a DT to do an update.
-  lastLovedDT: setDTStamp(resp.lastLovedDT),
-  isClean: checkStatus(resp.cleanProgress),
-  cleanProgress: resp.cleanProgress,
-  // execute the DT function in case the value was null - we need a DT to do an update.
-  lastCleanDT: setDTStamp(resp.lastCleanDT),
-  isMedicated: checkHealth(resp.medicationProgress),
-  medicationProgress: resp.medicationProgress,
-  // execute the DT function in case the value was null - we need a DT to do an update.
-  lastMedicineDT: setDTStamp()
-};
-// call the API route to update the pet row with the provided information
+    loveBar = (loveBar += 5) > 100 ? 100 : loveBar;
+    // gather all the pet column values to pass to the update routine
+    var petUpdate = {
+      isHungry: checkStatus(resp.hungerProgress),
+      hungerProgress: resp.hungerProgress,
+      // since this update is for the Feed Button, this will set the DT to the current DT.
+      lastFedDT: setDTStamp(resp.lastFedDT),
+      isPlayful: checkStatus(resp.playfulProgress),
+      playfulProgress: resp.playfulProgress,
+      // execute the DT function in case the value was null - we need a DT to do an update.
+      lastPlayDT: setDTStamp(resp.lastPlayDT),
+      isSleepy: checkStatus(resp.sleepProgress),
+      sleepProgress: resp.sleepProgress,
+      // execute the DT function in case the value was null - we need a DT to do an update.
+      lastSleepDT: setDTStamp(resp.lastSleepDT),
+      isLoved: checkStatus(loveBar),
+      loveProgress: loveBar,
+      // execute the DT function in case the value was null - we need a DT to do an update.
+      lastLovedDT: setDTStamp(resp.lastLovedDT),
+      isClean: checkStatus(resp.cleanProgress),
+      cleanProgress: resp.cleanProgress,
+      // execute the DT function in case the value was null - we need a DT to do an update.
+      lastCleanDT: setDTStamp(resp.lastCleanDT),
+      isMedicated: checkHealth(resp.medicationProgress),
+      medicationProgress: resp.medicationProgress,
+      // execute the DT function in case the value was null - we need a DT to do an update.
+      lastMedicineDT: setDTStamp()
+    };
+    // call the API route to update the pet row with the provided information
     $.ajax({
       method: "PUT",
       url: "/api/pet/" + petId,
@@ -417,6 +431,8 @@ function cleanButton(petId) {
     var cleanBar = resp.cleanProgress;
     var loveBar = resp.loveProgress;
     var healthBar = resp.medicationProgress;
+    var sleepyBar = resp.sleepProgress;
+    var playBar = resp.playfulProgress;
     // if dirtyness bar is below 30 but still tried to clean, the love and health are reduced
     if (cleanBar < 30) {
       loveBar = (loveBar -= 2) < 0 ? 0 : loveBar;
@@ -432,15 +448,19 @@ function cleanButton(petId) {
     }
     // reduce the dirtyness
     cleanBar =
-      (cleanBar -= Math.floor(Math.random() * 5) + 5) < 0 ? 0 : cleanBar;
+      (cleanBar -= Math.floor(Math.random() * 15) + 5) < 0 ? 0 : cleanBar;
+    // increase the sleepiness
+    sleepyBar = (sleepyBar += Math.floor(Math.random() * 5) + 5) > 100 ? 100 : sleepyBar;
+    // increase the playfulness
+    playBar = (playBar += Math.floor(Math.random() * 5) + 5) > 100 ? 100 : playBar;
     // gather all the pet column values to pass to the update routine
     var petUpdate = {
       isHungry: checkStatus(resp.hungerProgress),
       hungerProgress: resp.hungerProgress,
       // execute the DT function in case the value was null - we need a DT to do an update.
       lastFedDT: setDTStamp(resp.lastFedDT),
-      isPlayful: checkStatus(resp.playfulProgress),
-      playfulProgress: resp.playfulProgress,
+      isPlayful: checkStatus(playBar),
+      playfulProgress: playBar,
       // execute the DT function in case the value was null - we need a DT to do an update.
       lastPlayDT: setDTStamp(resp.lastPlayDT),
       isSleepy: checkStatus(resp.sleepProgress),
@@ -481,7 +501,7 @@ function medicineButton(petId) {
     var loveBar = resp.loveProgress;
     // increase health
     healthBar =
-      (healthBar += Math.floor(Math.random() * 5) + 5) < 0 ? 0 : healthBar;
+      (healthBar += Math.floor(Math.random() * 10) + 5) > 100 ? 100 : healthBar;
     // increase love
     loveBar = (loveBar += 1) > 100 ? 100 : loveBar;
 
